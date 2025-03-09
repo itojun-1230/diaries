@@ -1,5 +1,9 @@
 import { projectFolder } from "@/utils/projectFolder";
 
+/**
+ * 日記を移動する
+ * @param {GoogleAppsScript.Drive.File} targetFile - 移動する日記ファイル
+ */
 export const moveDiary = (targetFile: GoogleAppsScript.Drive.File) => {
     const currentFolder = projectFolder();
 

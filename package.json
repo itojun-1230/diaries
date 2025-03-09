@@ -1,0 +1,11 @@
+{
+  "name": "diaries",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@google/clasp": "^2.5.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.2"
+  }
+}

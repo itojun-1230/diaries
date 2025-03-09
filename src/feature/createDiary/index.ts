@@ -5,7 +5,7 @@ import { projectFolder } from "@/utils/projectFolder";
  * 日記を作成する
  * @param {number} offset - 現在の日付からの相対的な日数（正数：未来の日付、負数：過去の日付、0：現在の日付）
  */
-export const createDiary = (offset: number = 0): void => {
+export const createDiary = (offset: number = 0): GoogleAppsScript.Drive.File => {
     const currentFolder = projectFolder();
     
     // テンプレートファイルを取得
@@ -25,5 +25,7 @@ export const createDiary = (offset: number = 0): void => {
     }
 
     const fileName = getDiaryFileName(offset);
-    currentFolder.createFile(fileName, templateContent, "text/markdown");
+    
+    const file = currentFolder.createFile(fileName, templateContent, "text/markdown");
+    return file;
 };

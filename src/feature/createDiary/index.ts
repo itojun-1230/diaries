@@ -1,4 +1,4 @@
-import { getDiaryFileName } from "@/feature/getDiaryFileName";
+import { getDiaryFileName } from "@/funcs/getDiaryFileName";
 import { projectFolder } from "@/utils/projectFolder";
 
 /**

@@ -1,1 +1,0 @@
-export { getDiaryFileName } from '../getDiaryFileName'; 

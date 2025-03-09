@@ -1,3 +1,3 @@
-import { getDiaryFileName } from "./feature/file";
+import { createDiary } from "./feature/create";
 
-(global as any).getDiaryFileName = getDiaryFileName;
+(global as any).createDiary = createDiary;

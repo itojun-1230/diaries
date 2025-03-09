@@ -1,13 +1,13 @@
-import { getDiaryFileName } from "../getDiaryFileName";
+import { getDiaryFileName } from "@/feature/getDiaryFileName";
+import { projectFolder } from "@/utils/projectFolder";
 
 /**
  * 日記を作成する
  * @param {number} offset - 現在の日付からの相対的な日数（正数：未来の日付、負数：過去の日付、0：現在の日付）
  */
 export const createDiary = (offset: number = 0): void => {
-    const folderId = PropertiesService.getScriptProperties().getProperty("PROJECT_FOLDER_ID") || "";
-    const currentFolder = DriveApp.getFolderById(folderId);
-
+    const currentFolder = projectFolder();
+    
     // テンプレートファイルを取得
     const templateFile = currentFolder.getFilesByName("日記テンプレート.md").next();
     let templateContent = templateFile.getBlob().getDataAsString();

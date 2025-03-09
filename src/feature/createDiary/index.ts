@@ -14,10 +14,10 @@ export const createDiary = (offset: number = 0): GoogleAppsScript.Drive.File => 
     
     // テンプレートファイルの日付をリプレイス
     const replaceContents = {
-        '<% tp.date.now("YYYY-MM-DD", -7, tp.file.title, "YYYY-MM-DD") %>': getDiaryFileName(-7),
-        '<% tp.date.now("YYYY-MM-DD", -1, tp.file.title, "YYYY-MM-DD") %>': getDiaryFileName(-1),
-        '<% tp.date.now("YYYY-MM-DD", 1, tp.file.title, "YYYY-MM-DD") %>': getDiaryFileName(1),
-        '<% tp.date.now("YYYY-MM-DD", 7, tp.file.title, "YYYY-MM-DD") %>': getDiaryFileName(7)
+        '日記 <% tp.date.now("YYYY-MM-DD", -7, tp.file.title, "YYYY-MM-DD") %>': getDiaryFileName(-7),
+        '日記 <% tp.date.now("YYYY-MM-DD", -1, tp.file.title, "YYYY-MM-DD") %>': getDiaryFileName(-1),
+        '日記 <% tp.date.now("YYYY-MM-DD", 1, tp.file.title, "YYYY-MM-DD") %>': getDiaryFileName(1),
+        '日記 <% tp.date.now("YYYY-MM-DD", 7, tp.file.title, "YYYY-MM-DD") %>': getDiaryFileName(7)
     }
 
     for (const [key, value] of Object.entries(replaceContents)) {

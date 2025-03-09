@@ -1,6 +1,7 @@
 import { projectFolder } from "@/utils/projectFolder";
 import { isDiaryUpdated } from "@/funcs/isDiaryUpdated";
 import { moveDiary } from "../moveDiary";
+import { replaceKeyword } from "../replaceKeyword";
 
 /**
  * 日記を確認し、更新されている場合は移動する
@@ -18,6 +19,7 @@ export const checkDiaries = () => {
 
         if(isDiaryUpdated(diary)) {
             moveDiary(diary);
+            replaceKeyword(diary);
         }
     }
 }

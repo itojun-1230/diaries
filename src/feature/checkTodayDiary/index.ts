@@ -4,6 +4,7 @@ import { createDiary } from "@/feature/createDiary";
 import { LINE } from "@/feature/line";
 import { isDiaryUpdated } from "@/funcs/isDiaryUpdated";
 import { moveDiary } from "../moveDiary";
+import { replaceKeyword } from "../replaceKeyword";
 
 /**
  * 今日の日記を確認し、LINEで通知を送信する
@@ -43,6 +44,7 @@ export const checkTodayDiary = () => {
         // 日記が更新されている場合は完了メッセージを設定し、日記を移動
         message = `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日の日記を確認しました！一日お疲れ様でした！`;
         moveDiary(todayDiary);
+        replaceKeyword(todayDiary);
     }else {
         // 日記が更新されていない場合は催促メッセージを設定
         message = `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日の日記はお済みですか・・・?\nObsidianに日記を書いて、\n一日の事を振り返ってみませんか？`;

@@ -1,3 +1,3 @@
-const main = () => {
-    console.log("Hello, World!");
-};
+import { createDiary } from "./feature/create";
+
+(global as any).createDiary = createDiary;

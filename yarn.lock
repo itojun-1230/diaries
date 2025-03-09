@@ -323,6 +323,11 @@
     "@types/node" "*"
     "@types/responselike" "^1.0.0"
 
+"@types/google-apps-script@^1.0.97":
+  version "1.0.97"
+  resolved "https://registry.yarnpkg.com/@types/google-apps-script/-/google-apps-script-1.0.97.tgz#57c7d54785484451af2569f0b9d9bb38f3b424ff"
+  integrity sha512-T8hpQ4Yi7AUvd4fnzHfmo0joGG0j1GUC8TywvRtnKgTAv0vU/DXy4nNgw4VfcOD9ZDdJc0rGoZvWhHORipzFNQ==
+
 "@types/http-cache-semantics@*":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.4.tgz#b979ebad3919799c979b17c72621c0bc0a31c6c4"

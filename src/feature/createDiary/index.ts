@@ -1,4 +1,4 @@
-import { getDiaryFileName } from "../getDiaryFileName";
+import { getDiaryFileName } from "@/feature/getDiaryFileName";
 
 /**
  * 日記を作成する

@@ -1,3 +1,3 @@
-import { createDiary } from "./feature/create";
+import { createDiary } from "./feature/createDiary";
 
 (global as any).createDiary = createDiary;

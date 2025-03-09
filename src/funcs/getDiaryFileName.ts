@@ -5,13 +5,11 @@
  */
 export const getDiaryFileName = (offset: number = 0): string => {
     const date = new Date();
-    // JSTでの日付を取得
-    const jstDate = new Date(date.getTime() + (9 * 60 * 60 * 1000));
-    jstDate.setDate(jstDate.getDate() + offset);
+    date.setDate(date.getDate() + offset);
 
-    const year = jstDate.getFullYear();
-    const month = String(jstDate.getMonth() + 1).padStart(2, '0');
-    const day = String(jstDate.getDate()).padStart(2, '0');
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
 
     return `日記 ${year}-${month}-${day}.md`;
 }; 

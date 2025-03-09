@@ -7,18 +7,18 @@ export const moveDiary = (targetFile: GoogleAppsScript.Drive.File) => {
     const diaryCreatedDate = targetFile.getDateCreated();
 
     // 移動先を取得
-    const yearFoldeies = currentFolder.getFoldersByName(diaryCreatedDate.getFullYear().toString());
+    const yearFolders = currentFolder.getFoldersByName(diaryCreatedDate.getFullYear().toString());
     let yearFolder: GoogleAppsScript.Drive.Folder;
-    if (yearFoldeies.hasNext()) {
-        yearFolder = yearFoldeies.next();
+    if (yearFolders.hasNext()) {
+        yearFolder = yearFolders.next();
     }else {
         yearFolder = currentFolder.createFolder(diaryCreatedDate.getFullYear().toString());
     }
 
-    const monthFoldeies = yearFolder.getFoldersByName((diaryCreatedDate.getMonth() + 1).toString().padStart(2, "0"));
+    const monthFolders = yearFolder.getFoldersByName((diaryCreatedDate.getMonth() + 1).toString().padStart(2, "0"));
     let monthFolder: GoogleAppsScript.Drive.Folder;
-    if (monthFoldeies.hasNext()) {
-        monthFolder = monthFoldeies.next();
+    if (monthFolders.hasNext()) {
+        monthFolder = monthFolders.next();
     }else {
         monthFolder = yearFolder.createFolder((diaryCreatedDate.getMonth() + 1).toString().padStart(2, "0"));
     }
@@ -26,4 +26,3 @@ export const moveDiary = (targetFile: GoogleAppsScript.Drive.File) => {
     // 日記を移動
     targetFile.moveTo(monthFolder);
 }
-

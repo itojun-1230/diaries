@@ -1,5 +1,3 @@
-import { createDiary } from "./feature/createDiary";
-import { moveDiary } from "./feature/moveDiary";
+import { checkTodayDiary } from "./feature/checkTodayDiary";
 
-(global as any).createDiary = createDiary;
-(global as any).moveDiary = moveDiary;
+(global as any).checkTodayDiary = checkTodayDiary;

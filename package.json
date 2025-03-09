@@ -4,14 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "build": "node esbuild.js",
+    "push": "clasp push",
+    "open": "clasp open",
+    "deploy": "yarn build && clasp push"
   },
   "devDependencies": {
     "@google/clasp": "^2.5.0",
-    "@types/jest": "^29.5.14",
     "esbuild": "^0.25.0",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.2.6",
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "esbuild-gas-plugin": "^0.8.0"
   }
 }

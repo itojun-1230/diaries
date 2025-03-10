@@ -16,7 +16,15 @@ export const checkDiaries = async () => {
         if(!fileName.match(/^日記 \d{4}-\d{2}-\d{2}\.md$/)) {
             continue;
         }
+        
+        // 今日の日記は更新しない
+        const today = new Date();
+        const diaryDate = new Date(fileName.split(" ")[1]);
+        if(diaryDate.getFullYear() === today.getFullYear() && diaryDate.getMonth() === today.getMonth() && diaryDate.getDate() === today.getDate()) {
+            continue;
+        }
 
+        
         if(isDiaryUpdated(diary)) {
             await replaceKeyword(diary);
             moveDiary(diary);

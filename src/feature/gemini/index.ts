@@ -32,6 +32,9 @@ export class Gemini {
             }),
         });
         const data = JSON.parse(response.getContentText());
-        return data.candidates[0].content.parts[0].text;
+        const parts: {
+            text: string
+        }[] = data.candidates[0].content.parts;
+        return parts[parts.length - 1].text;
     }
 }

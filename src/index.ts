@@ -1,6 +1,7 @@
 import { checkTodayDiary } from "./feature/checkTodayDiary";
 import { checkDiaries } from "./feature/checkDiaries";
-import { extractKeywords } from "./feature/getKeywordsFromFile";
+import { checkKeywords } from "./feature/checkKeywords";
 
 (global as any).checkTodayDiary = checkTodayDiary;
 (global as any).checkDiaries = checkDiaries;
+(global as any).checkKeywords = checkKeywords;

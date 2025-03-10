@@ -11,7 +11,7 @@ export const extractKeywords = async (content: string): Promise<string[]> => {
 回答は、キーワードのみをカンマ区切りで返してください。また、省略や誤字などがある場合は、修正してください。
 
 日記の内容：
-${content}
+${content.split("リンク")[0]}
 `;
 
     const geminiApiKey = PropertiesService.getScriptProperties().getProperty("GEMINI_API_KEY");

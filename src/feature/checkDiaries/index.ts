@@ -6,7 +6,7 @@ import { replaceKeyword } from "../replaceKeyword";
 /**
  * 日記を確認し、更新されている場合は移動する
  */
-export const checkDiaries = () => {
+export const checkDiaries = async () => {
     const currentFolder = projectFolder();
     const diaries = currentFolder.getFiles();
     while(diaries.hasNext()) {
@@ -18,8 +18,8 @@ export const checkDiaries = () => {
         }
 
         if(isDiaryUpdated(diary)) {
+            await replaceKeyword(diary);
             moveDiary(diary);
-            replaceKeyword(diary);
         }
     }
 }

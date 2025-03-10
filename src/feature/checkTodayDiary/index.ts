@@ -15,7 +15,7 @@ import { replaceKeyword } from "../replaceKeyword";
  * 3. 日記の更新状態を確認
  * 4. 更新状態に応じたメッセージをLINEで送信
  */
-export const checkTodayDiary = () => {
+export const checkTodayDiary = async () => {
     // LINEのアクセストークンを取得
     const accessToken = PropertiesService.getScriptProperties().getProperty("LINE_ACCESS_TOKEN");
     if (!accessToken) {
@@ -43,8 +43,8 @@ export const checkTodayDiary = () => {
     if(isDiaryUpdated(todayDiary)) {
         // 日記が更新されている場合は完了メッセージを設定し、日記を移動
         message = `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日の日記を確認しました！一日お疲れ様でした！`;
+        await replaceKeyword(todayDiary);
         moveDiary(todayDiary);
-        replaceKeyword(todayDiary);
     }else {
         // 日記が更新されていない場合は催促メッセージを設定
         message = `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日の日記はお済みですか・・・?\nObsidianに日記を書いて、\n一日の事を振り返ってみませんか？`;

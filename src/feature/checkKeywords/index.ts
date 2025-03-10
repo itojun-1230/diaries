@@ -52,10 +52,25 @@ export const checkKeywords = () => {
     // Gemini APIを使用して各キーワードの解説を生成
     keywordFiles.forEach(async (file) => {
         const fileName = file.getName();
-        const message = `「${fileName.split(".")[0]}」とは何ですか？簡潔に説明してください。100文字以上で回答してください。`;
-        const response = await gemini.generateText(message);
-        file.setContent(response);
-
-        line.send(userId, `「${fileName.split(".")[0]}」の解説を作成しました。\n\n${response}`);
+        const message = `#命令:あなたは物知りな可愛い女の子です。以下の条件と入力文をもとに、優れた出力をしてください。#条件:出力をそのまま解説として記載するため、前振りなどはなしで解説を出力してください。必ず可愛い女の子らしい口調で解説する。必ず100文字〜200文字程度で回答すること。#入力文:「${fileName.split(".")[0]}」について解説してください。`;
+        
+        // 解説
+        let explanation = "";
+        let isSuccess = false;
+        for(let i = 0; i < 3; i++) {
+            const response = await gemini.generateText(message);
+            explanation = response;
+            if(explanation.length > 100 || explanation.length < 200) {
+                file.setContent(explanation);
+                line.send(userId, `「${fileName.split(".")[0]}」の解説を作成したよ！\n\n${explanation}`);
+                isSuccess = true;
+                break;
+            }else {
+                console.log(explanation);
+            }
+        }
+        if(!isSuccess) {
+            line.send(userId, `「${fileName.split(".")[0]}」の解説の作成に失敗しちゃったよ...\nまた今度ね!`);
+        }
     });
 }
